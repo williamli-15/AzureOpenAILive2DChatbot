@@ -146,9 +146,9 @@ export class AzureAi {
 
     const wav = await getWaveBlob(data, false, { sampleRate: 16000 });
 
-    const sttUrl = this._ttsregion ? `https://${this._ttsregion}.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1` : this._sttUrl;
+    const sttUrl = this._ttsregion ? `https://${this._ttsregion}.stt.speech.microsoft.com/speech/universal/v2` : this._sttUrl;
 
-    const response = await fetch(sttUrl + `?language=${language}`, {
+    const response = await fetch(sttUrl, {
       method: 'POST',
       headers: requestHeaders,
       body: wav
